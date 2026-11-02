@@ -140,3 +140,11 @@ Details reflect each repository in October 2026; confirm current capabilities in
 - [Guardrails for tools and agents](https://github.com/ai-gateways/ai-guardrails#guardrails-for-tools-and-agents): checking tool arguments and tool results
 - [Shadow AI](https://github.com/ai-gateways/ai-governance#shadow-ai): unreviewed MCP servers and AI tools outside the gateway
 - [AI Gateways](https://github.com/ai-gateways): all guides in this organization
+
+## Agent skill
+
+[`bifrost-mcp-gateway`](skills/bifrost-mcp-gateway/SKILL.md) is an Agent Skill that guides a coding agent to set up Bifrost as an MCP gateway that serves your MCP servers to Claude Code, Cursor, and Claude Desktop with per-key tool filtering.
+
+```bash
+npx skills add ai-gateways/mcp-gateway
+```
