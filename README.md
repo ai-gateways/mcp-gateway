@@ -16,6 +16,7 @@ This guide explains how an MCP gateway works, how it differs from an MCP proxy a
 - [How to evaluate an MCP gateway](#how-to-evaluate-an-mcp-gateway)
 - [Open source MCP gateway options](#open-source-mcp-gateway-options)
 - [Related guides](#related-guides)
+- [Agent skill](#agent-skill)
 
 ## What is an MCP gateway?
 
@@ -143,7 +144,7 @@ Details reflect each repository in October 2026; confirm current capabilities in
 
 ## Agent skill
 
-[`bifrost-mcp-gateway`](skills/bifrost-mcp-gateway/SKILL.md) is an Agent Skill that guides a coding agent to set up Bifrost as an MCP gateway that serves your MCP servers to Claude Code, Cursor, and Claude Desktop with per-key tool filtering.
+[`mcp-gateway`](skills/mcp-gateway/SKILL.md) is an Agent Skill that guides a coding agent to set up Bifrost as an MCP gateway that serves your MCP servers to Claude Code, Cursor, and Claude Desktop with per-key tool filtering.
 
 ```bash
 npx skills add ai-gateways/mcp-gateway
