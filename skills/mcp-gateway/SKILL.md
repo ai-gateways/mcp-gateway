@@ -46,7 +46,7 @@ STDIO servers may fail in Docker when the container lacks their command (`npx`, 
 
 ### 2. Connect MCP servers
 
-MCP client names must be ASCII, unique, free of hyphens and spaces, and must not start with a digit (`filesystem` and `web_search` are valid; `web-search` is not). `tools_to_execute: ["*"]` exposes every tool, a list exposes only those tools, and `[]` exposes none.
+MCP client names must be ASCII, unique, free of hyphens and spaces, and must not start with a digit (`filesystem` and `web_search` are valid; `web-search` is not). `tools_to_execute` decides which of a server's tools the gateway exposes at all: a list exposes only those tools, `["*"]` exposes every tool, and `[]` exposes none. Prefer an explicit list once you have reviewed a server's tools.
 
 Declare servers in `config.json` in the Bifrost app directory (`~/.config/bifrost` for npx, `./data` for the Docker command above). This works for every connection type without dashboard auth:
 
@@ -62,7 +62,7 @@ Declare servers in `config.json` in the Bifrost app directory (`~/.config/bifros
           "args": ["-y", "@modelcontextprotocol/server-filesystem", "/srv/shared"],
           "envs": ["HOME", "PATH"]
         },
-        "tools_to_execute": ["*"]
+        "tools_to_execute": ["read_text_file", "list_directory", "search_files"]
       },
       {
         "name": "docs_search",
@@ -158,7 +158,7 @@ Enable it for 3 or more servers or any large server (web search, documents, data
 
 Tool results carry text other people wrote: issues, web pages, documents, file contents. That text can hold instructions aimed at the model (indirect prompt injection). The gateway limits what such an instruction can reach:
 
-- Give each virtual key only the tools its caller needs. Keep write, delete, and send tools off keys used by agents that also read untrusted content.
+- Expose only reviewed tools: give each MCP client an explicit `tools_to_execute` list, then narrow it again per virtual key. Keep write, delete, and send tools off keys used by agents that also read untrusted content.
 - Keep tool approval on in Claude Code, Cursor, and Claude Desktop for tools that change data. In gateway mode the client, not Bifrost, decides whether a call needs approval.
 - Connect only MCP servers you trust. Their tool descriptions reach the model too.
 - Bifrost Enterprise guardrails can inspect tool arguments before a call and tool results before they are returned, then block or redact them ([MCP Guardrails](https://docs.getbifrost.ai/enterprise/guardrails#mcp-guardrails)).
