@@ -140,6 +140,7 @@ Details reflect each repository in October 2026; confirm current capabilities in
 - [The three kinds of AI traffic](https://github.com/ai-gateways/ai-gateway#the-three-kinds-of-ai-traffic): how LLM, MCP, and agent gateways fit under one AI gateway
 - [Guardrails for tools and agents](https://github.com/ai-gateways/ai-guardrails#guardrails-for-tools-and-agents): checking tool arguments and tool results
 - [Shadow AI](https://github.com/ai-gateways/ai-governance#shadow-ai): unreviewed MCP servers and AI tools outside the gateway
+- [Awesome AI Gateways](https://github.com/ai-gateways/awesome-ai-gateways#mcp-gateways): a curated list of open-source and commercial MCP gateways
 - [AI Gateways](https://github.com/ai-gateways): all guides in this organization
 
 ## Agent skill
